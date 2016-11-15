@@ -1,0 +1,46 @@
+<html>
+<body>
+  <h1>Hello</h1>
+
+  <script>
+
+    readyArray = createArray(3000);
+
+    doneArray = convertArrayToObj(readyArray);
+
+    console.dir(doneArray);
+
+    function createArray(count) {
+
+        result = [];
+
+        while(count > 0) {
+
+            count--;
+            result[count] = Math.floor(Math.random() * 100) + 1
+        }
+
+        return result;
+    }
+
+    function convertArrayToObj(newArray) {
+
+      var obj = {};
+      alphabet = ["a",'b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x', 'y','z'];
+
+      numberKey = 1;
+
+      for(key in newArray) {
+        if(alphabet.length > 0) {
+         obj[alphabet.shift()] = newArray[key];
+      } else {
+
+          obj[numberKey] = newArray[key];
+          numberKey++;
+       }
+      }
+
+      return obj;
+
+    }
+  </script>
